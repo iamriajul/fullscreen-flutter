@@ -39,7 +39,7 @@ class FullScreen {
   /// Exit full screen
   static Future<void> exitFullScreen() async {
     if (Platform.isIOS) {
-      SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack, overlays: SystemUiOverlay.values);
     } else if (Platform.isAndroid) {
       try {
         await _channel.invokeMethod('exitFullScreen');
